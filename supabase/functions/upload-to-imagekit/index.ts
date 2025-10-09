@@ -21,7 +21,7 @@ Deno.serve(async (req) => {
     }
 
     const imagekitPrivateKey = Deno.env.get('IMAGEKIT_PRIVATE_KEY');
-    
+
     if (!imagekitPrivateKey) {
       console.error('IMAGEKIT_PRIVATE_KEY not found');
       return new Response(
@@ -30,20 +30,8 @@ Deno.serve(async (req) => {
       );
     }
 
-    // Parse ImageKit credentials (format: publicKey:privateKey@urlEndpoint)
-    const [credentials, urlEndpoint] = imagekitPrivateKey.split('@');
-    const [publicKey, privateKey] = credentials.split(':');
-
-    if (!publicKey || !privateKey || !urlEndpoint) {
-      console.error('Invalid IMAGEKIT_PRIVATE_KEY format');
-      return new Response(
-        JSON.stringify({ error: 'ImageKit configuration error' }),
-        { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      );
-    }
-
     // Create Basic Auth header
-    const authString = btoa(`${privateKey}:`);
+    const authString = btoa(`${imagekitPrivateKey}:`);
     
     // Upload to ImageKit
     const formData = new FormData();
