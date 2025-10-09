@@ -75,7 +75,7 @@ const Home = () => {
                 Browse Products <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-            <a href="https://wa.me/+254762644702">
+            <a href="https://wa.me/+254107500245">
               <Button size="lg" variant="outline" className="text-lg bg-white/10 backdrop-blur border-white text-white hover:bg-white hover:text-primary">
                 <MessageCircle className="mr-2 h-5 w-5" />
                 WhatsApp Us
@@ -270,10 +270,10 @@ const Home = () => {
                 Contact Us Now
               </Button>
             </Link>
-            <a href="tel:+254762644702">
+            <a href="tel:+254107500245">
               <Button size="lg" variant="outline" className="text-lg bg-white/10 backdrop-blur border-white text-white hover:bg-white hover:text-primary">
                 <Phone className="mr-2 h-5 w-5" />
-                Call +254 762 644 702
+                Call +254 107 500 245
               </Button>
             </a>
           </div>

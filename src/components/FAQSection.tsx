@@ -67,10 +67,10 @@ const FAQSection = () => {
             Still have questions? We're here to help!
           </p>
           <a
-            href="tel:+254762644702"
+            href="tel:+254107500245"
             className="inline-flex items-center px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors duration-300 font-medium"
           >
-            Call Us: +254 762 644 702
+            Call Us: +254 107 500 245
           </a>
         </div>
       </div>
