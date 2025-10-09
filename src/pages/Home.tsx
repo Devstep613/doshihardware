@@ -7,8 +7,6 @@ import { supabase } from "@/integrations/supabase/client";
 import { Spinner } from "@/components/ui/spinner";
 import heroImage from "@/assets/hero-hardware.jpg";
 import waterTanksImg from "@/assets/products/water-tanks.jpg";
-import cementImg from "@/assets/products/cement.jpg";
-import roofingImg from "@/assets/products/roofing.jpg";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CategoriesSection from "@/components/CategoriesSection";
@@ -33,11 +31,7 @@ const Home = () => {
     },
   });
 
-  const productImages: Record<string, string> = {
-    'Water Tank 1000L': waterTanksImg,
-    'Portland Cement 50kg': cementImg,
-    'Roofing Sheets - Mabati': roofingImg,
-  };
+
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -95,7 +89,7 @@ const Home = () => {
               <Card key={product.id} className="overflow-hidden hover:shadow-xl transition-shadow">
                 <div className="h-64 overflow-hidden">
                   <img
-                    src={productImages[product.name] || waterTanksImg}
+                    src={product.image_url || waterTanksImg}
                     alt={product.name}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
