@@ -102,10 +102,14 @@ export type Database = {
           category: string
           created_at: string | null
           description: string | null
+          discount_price: number | null
           id: string
           image_url: string | null
           is_featured: boolean | null
+          is_on_offer: boolean | null
           name: string
+          offer_end_date: string | null
+          original_price: number | null
           price: number
           updated_at: string | null
         }
@@ -113,10 +117,14 @@ export type Database = {
           category: string
           created_at?: string | null
           description?: string | null
+          discount_price?: number | null
           id?: string
           image_url?: string | null
           is_featured?: boolean | null
+          is_on_offer?: boolean | null
           name: string
+          offer_end_date?: string | null
+          original_price?: number | null
           price: number
           updated_at?: string | null
         }
@@ -124,10 +132,14 @@ export type Database = {
           category?: string
           created_at?: string | null
           description?: string | null
+          discount_price?: number | null
           id?: string
           image_url?: string | null
           is_featured?: boolean | null
+          is_on_offer?: boolean | null
           name?: string
+          offer_end_date?: string | null
+          original_price?: number | null
           price?: number
           updated_at?: string | null
         }

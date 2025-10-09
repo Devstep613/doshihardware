@@ -54,6 +54,10 @@ const ProductForm = ({
     description: initialData?.description || "",
     image_url: initialData?.image_url || "",
     is_featured: initialData?.is_featured || false,
+    is_on_offer: initialData?.is_on_offer || false,
+    original_price: initialData?.original_price || 0,
+    discount_price: initialData?.discount_price || 0,
+    offer_end_date: initialData?.offer_end_date || "",
   });
   const [uploading, setUploading] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -66,6 +70,10 @@ const ProductForm = ({
       description: initialData?.description || "",
       image_url: initialData?.image_url || "",
       is_featured: initialData?.is_featured || false,
+      is_on_offer: initialData?.is_on_offer || false,
+      original_price: initialData?.original_price || 0,
+      discount_price: initialData?.discount_price || 0,
+      offer_end_date: initialData?.offer_end_date || "",
     });
   }, [initialData]);
 
@@ -202,6 +210,42 @@ const ProductForm = ({
           onChange={(e) => setFormData({ ...formData, is_featured: e.target.checked })}
         />
         <Label htmlFor="is_featured">Featured Product</Label>
+      </div>
+      <div className="flex items-center space-x-2">
+        <input
+          type="checkbox"
+          id="is_on_offer"
+          checked={formData.is_on_offer}
+          onChange={(e) => setFormData({ ...formData, is_on_offer: e.target.checked })}
+        />
+        <Label htmlFor="is_on_offer">On Offer</Label>
+      </div>
+      <div>
+        <Label htmlFor="original_price">Original Price</Label>
+        <Input
+          id="original_price"
+          type="number"
+          value={formData.original_price}
+          onChange={(e) => setFormData({ ...formData, original_price: parseFloat(e.target.value) || 0 })}
+        />
+      </div>
+      <div>
+        <Label htmlFor="discount_price">Discount Price</Label>
+        <Input
+          id="discount_price"
+          type="number"
+          value={formData.discount_price}
+          onChange={(e) => setFormData({ ...formData, discount_price: parseFloat(e.target.value) || 0 })}
+        />
+      </div>
+      <div>
+        <Label htmlFor="offer_end_date">Offer End Date</Label>
+        <Input
+          id="offer_end_date"
+          type="datetime-local"
+          value={formData.offer_end_date}
+          onChange={(e) => setFormData({ ...formData, offer_end_date: e.target.value })}
+        />
       </div>
       {error && <div className="text-red-500 text-sm">{error}</div>}
       <Button type="submit" className="w-full" disabled={isLoading} aria-label={initialData ? "Update Product" : "Create Product"}>
@@ -776,7 +820,7 @@ const Admin = () => {
                     Add Product
                   </Button>
                 </DialogTrigger>
-                <DialogContent>
+                <DialogContent className="max-h-[90vh] overflow-y-auto">
                   <ProductForm
                     onSubmit={(data) => createProductMutation.mutate(data as ProductInsert)}
                     isLoading={createProductMutation.isPending}
@@ -803,6 +847,10 @@ const Admin = () => {
                       <TableHead>Category</TableHead>
                       <TableHead>Price</TableHead>
                       <TableHead>Featured</TableHead>
+                      <TableHead>On Offer</TableHead>
+                      <TableHead>Original Price</TableHead>
+                      <TableHead>Discount Price</TableHead>
+                      <TableHead>Offer End Date</TableHead>
                       <TableHead>Actions</TableHead>
                     </TableRow>
                   </TableHeader>
@@ -817,6 +865,14 @@ const Admin = () => {
                             {product.is_featured ? "Yes" : "No"}
                           </Badge>
                         </TableCell>
+                        <TableCell>
+                          <Badge variant={product.is_on_offer ? "default" : "secondary"}>
+                            {product.is_on_offer ? "Yes" : "No"}
+                          </Badge>
+                        </TableCell>
+                        <TableCell>{product.original_price ? `KSh ${product.original_price}` : "-"}</TableCell>
+                        <TableCell>{product.discount_price ? `KSh ${product.discount_price}` : "-"}</TableCell>
+                        <TableCell>{product.offer_end_date ? formatDate(product.offer_end_date) : "-"}</TableCell>
                         <TableCell>
                           <div className="flex gap-2">
                             <Dialog
@@ -835,7 +891,7 @@ const Admin = () => {
                                   <Edit className="h-4 w-4" />
                                 </Button>
                               </DialogTrigger>
-                              <DialogContent>
+                              <DialogContent className="max-h-[90vh] overflow-y-auto">
                                 <ProductForm
                                   initialData={product}
                                   onSubmit={(data) =>

@@ -1,8 +1,3 @@
-- [x] Add createCommentMutation and updateCommentMutation in Admin.tsx
-- [x] Add createInquiryMutation and updateInquiryMutation in Admin.tsx
-- [x] Add "Add Review" button and dialog in Reviews tab header
-- [x] Add Edit button in Reviews table actions with dialog
-- [x] Add "Add Inquiry" button and dialog in Inquiries tab header
-- [x] Add Edit button in Inquiries table actions with dialog
-- [ ] Test CRUD operations for Reviews and Inquiries
-- [ ] Verify admin authorization is working
+- [x] Add max-h-[90vh] overflow-y-auto to DialogContent for add product dialog in Admin.tsx
+- [x] Add max-h-[90vh] overflow-y-auto to DialogContent for edit product dialog in Admin.tsx
+- [ ] Test the admin panel to verify the form is scrollable and the update button is accessible

@@ -15,6 +15,7 @@ import ReviewsSection from "@/components/ReviewsSection";
 import FAQSection from "@/components/FAQSection";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import LocationMap from "@/components/LocationMap";
+import CountdownTimer from "@/components/CountdownTimer";
 
 const Home = () => {
   const { data: featuredProducts, isLoading } = useQuery({
@@ -25,6 +26,20 @@ const Home = () => {
         .select('*')
         .eq('is_featured', true)
         .limit(3);
+
+      if (error) throw error;
+      return data;
+    },
+  });
+
+  const { data: offerProducts, isLoading: offerLoading } = useQuery({
+    queryKey: ['offer-products'],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from('products')
+        .select('*')
+        .eq('is_on_offer', true)
+        .limit(6);
 
       if (error) throw error;
       return data;
@@ -91,7 +106,7 @@ const Home = () => {
                   <img
                     src={product.image_url || waterTanksImg}
                     alt={product.name}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover scale-90 hover:scale-105 transition-transform duration-300"
                   />
                 </div>
                 <CardHeader>
@@ -116,6 +131,68 @@ const Home = () => {
             <Link to="/products">
               <Button size="lg" variant="outline">
                 View All Products <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* On Offer Products */}
+      <section className="py-16 bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4 text-white">On Offer</h2>
+            <p className="text-xl text-white/90">Limited time deals on premium building materials</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {offerLoading ? (
+              <div className="col-span-full flex justify-center py-12">
+                <Spinner size="lg" />
+              </div>
+            ) : offerProducts?.map((product) => (
+              <Card key={product.id} className="overflow-hidden hover:shadow-xl transition-shadow bg-white">
+                <div className="h-64 overflow-hidden">
+                  <img
+                    src={product.image_url || waterTanksImg}
+                    alt={product.name}
+                    className="w-full h-full object-cover scale-90 hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <CardHeader>
+                  <CardTitle>{product.name}</CardTitle>
+                  <CardDescription>{product.description}</CardDescription>
+                  {product.offer_end_date && (
+                    <div className="mt-2">
+                      <CountdownTimer endDate={product.offer_end_date} />
+                    </div>
+                  )}
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center justify-between">
+                    <div className="flex flex-col">
+                      {product.original_price && (
+                        <span className="text-lg line-through text-gray-500">
+                          KSh {product.original_price.toLocaleString()}
+                        </span>
+                      )}
+                      <span className="text-2xl font-bold text-primary">
+                        KSh {product.discount_price?.toLocaleString() || product.price.toLocaleString()}
+                      </span>
+                    </div>
+                    <Link to="/contact">
+                      <Button>Buy Now</Button>
+                    </Link>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link to="/offers">
+              <Button size="lg" variant="outline" className="bg-white text-black hover:bg-gray-100">
+                View All Offers <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
           </div>
