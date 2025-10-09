@@ -310,7 +310,7 @@ const CommentForm = ({
     email: initialData?.email || "",
     message: initialData?.message || "",
     rating: initialData?.rating || 5,
-    product_id: initialData?.product_id || "",
+    product_id: initialData?.product_id || null,
   });
 
   useEffect(() => {
@@ -319,7 +319,7 @@ const CommentForm = ({
       email: initialData?.email || "",
       message: initialData?.message || "",
       rating: initialData?.rating || 5,
-      product_id: initialData?.product_id || "",
+      product_id: initialData?.product_id || null,
     });
   }, [initialData]);
 
@@ -383,8 +383,8 @@ const CommentForm = ({
         <Label htmlFor="product_id">Product ID</Label>
         <Input
           id="product_id"
-          value={formData.product_id}
-          onChange={(e) => setFormData({ ...formData, product_id: e.target.value })}
+          value={formData.product_id || ""}
+          onChange={(e) => setFormData({ ...formData, product_id: e.target.value || null })}
         />
       </div>
       {error && <div className="text-red-500 text-sm">{error}</div>}
