@@ -7,6 +7,8 @@ import { supabase } from "@/integrations/supabase/client";
 import { Spinner } from "@/components/ui/spinner";
 import heroImage from "@/assets/hero-hardware.jpg";
 import waterTanksImg from "@/assets/products/water-tanks.jpg";
+import cementImg from "@/assets/products/cement.jpg";
+import roofingImg from "@/assets/products/roofing.jpg";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CategoriesSection from "@/components/CategoriesSection";
@@ -46,7 +48,11 @@ const Home = () => {
     },
   });
 
-
+  const productImages: Record<string, string> = {
+    'Water Tanks': waterTanksImg,
+    'Cement': cementImg,
+    'Roofing': roofingImg,
+  };
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -102,11 +108,11 @@ const Home = () => {
               </div>
             ) : featuredProducts?.map((product) => (
               <Card key={product.id} className="overflow-hidden hover:shadow-xl transition-shadow">
-                <div className="h-64 overflow-hidden">
+                <div className="h-56 overflow-hidden bg-muted relative">
                   <img
-                    src={product.image_url || waterTanksImg}
+                    src={product.image_url || productImages[product.category] || waterTanksImg}
                     alt={product.name}
-                    className="w-full h-full object-cover scale-90 hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
                   />
                 </div>
                 <CardHeader>
@@ -152,11 +158,11 @@ const Home = () => {
               </div>
             ) : offerProducts?.map((product) => (
               <Card key={product.id} className="overflow-hidden hover:shadow-xl transition-shadow bg-white">
-                <div className="h-64 overflow-hidden">
+                <div className="h-56 overflow-hidden bg-muted relative">
                   <img
-                    src={product.image_url || waterTanksImg}
+                    src={product.image_url || productImages[product.category] || waterTanksImg}
                     alt={product.name}
-                    className="w-full h-full object-cover scale-90 hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
                   />
                 </div>
                 <CardHeader>

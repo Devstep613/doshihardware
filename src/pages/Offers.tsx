@@ -105,11 +105,11 @@ const Offers = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filteredProducts.map((product) => (
                   <Card key={product.id} className="overflow-hidden hover:shadow-xl transition-shadow">
-                    <div className="h-56 overflow-hidden bg-muted">
+                    <div className="h-56 overflow-hidden bg-muted relative">
                       <img
                         src={product.image_url || productImages[product.category] || waterTanksImg}
                         alt={product.name}
-                        className="w-full h-full object-cover scale-90 hover:scale-105 transition-transform duration-300"
+                        className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
                       />
                     </div>
                     <CardHeader>

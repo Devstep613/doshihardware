@@ -188,16 +188,23 @@ const ProductForm = ({
             </Button>
           </div>
           {formData.image_url && (
-            <div className="text-sm">
-              <p className="text-muted-foreground">Current image:</p>
-              <a 
-                href={formData.image_url} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-primary hover:underline break-all"
-              >
-                {formData.image_url}
-              </a>
+            <div className="space-y-2">
+              <p className="text-sm text-muted-foreground">Current image:</p>
+              <div className="flex items-center gap-4">
+                <img
+                  src={formData.image_url}
+                  alt="Product preview"
+                  className="w-20 h-20 object-cover rounded border"
+                />
+                <a
+                  href={formData.image_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline break-all text-sm"
+                >
+                  View full image
+                </a>
+              </div>
             </div>
           )}
         </div>
@@ -843,6 +850,7 @@ const Admin = () => {
                 <Table>
                   <TableHeader>
                     <TableRow>
+                      <TableHead>Image</TableHead>
                       <TableHead>Name</TableHead>
                       <TableHead>Category</TableHead>
                       <TableHead>Price</TableHead>
@@ -857,6 +865,19 @@ const Admin = () => {
                   <TableBody>
                     {products.map((product) => (
                       <TableRow key={product.id}>
+                        <TableCell>
+                          {product.image_url ? (
+                            <img
+                              src={product.image_url}
+                              alt={product.name}
+                              className="w-12 h-12 object-cover rounded border"
+                            />
+                          ) : (
+                            <div className="w-12 h-12 bg-gray-200 rounded border flex items-center justify-center text-xs text-gray-500">
+                              No Image
+                            </div>
+                          )}
+                        </TableCell>
                         <TableCell>{product.name}</TableCell>
                         <TableCell>{product.category}</TableCell>
                         <TableCell>KSh {product.price}</TableCell>
