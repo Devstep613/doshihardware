@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,7 +11,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { Star, Plus, Edit, Trash2 } from "lucide-react";
+import { Star, Plus, Edit, Trash2, LogOut } from "lucide-react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
@@ -538,7 +539,14 @@ const EmptyState = ({ message }: { message: string }) => (
 );
 
 const Admin = () => {
+  const navigate = useNavigate();
   const queryClient = useQueryClient();
+
+  useEffect(() => {
+    if (localStorage.getItem('admin_logged_in') !== 'true') {
+      navigate('/login');
+    }
+  }, [navigate]);
 
   const [editComment, setEditComment] = useState<Comment | undefined>(undefined);
   const [commentDialogOpen, setCommentDialogOpen] = useState(false);
@@ -805,6 +813,10 @@ const Admin = () => {
     <div className="container mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold">Admin Panel</h1>
+        <Button variant="outline" onClick={() => { localStorage.removeItem('admin_logged_in'); navigate('/login'); }}>
+          <LogOut className="mr-2 h-4 w-4" />
+          Logout
+        </Button>
       </div>
 
       <Tabs defaultValue="products" className="w-full">
