@@ -1,3 +1,3 @@
-- [x] Add max-h-[90vh] overflow-y-auto to DialogContent for add product dialog in Admin.tsx
-- [x] Add max-h-[90vh] overflow-y-auto to DialogContent for edit product dialog in Admin.tsx
-- [ ] Test the admin panel to verify the form is scrollable and the update button is accessible
+- [x] Remove "lovable-tagger" from package.json devDependencies
+- [x] Remove import and usage of componentTagger from vite.config.ts
+- [x] Run npm install to regenerate package-lock.json and clean node_modules
