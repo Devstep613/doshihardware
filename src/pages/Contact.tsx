@@ -167,7 +167,7 @@ const Contact = () => {
                       </div>
                       <div>
                         <div className="font-semibold">Phone</div>
-                        <div className="text-muted-foreground">+254 107 500 245</div>
+                        <div className="text-muted-foreground">+254 107 500 245 / +254 753 249 744</div>
                       </div>
                     </a>
 

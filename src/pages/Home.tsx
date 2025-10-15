@@ -279,7 +279,7 @@ const Home = () => {
             <a href="tel:+254107500245">
               <Button size="lg" variant="outline" className="text-lg bg-white/10 backdrop-blur border-white text-white hover:bg-white hover:text-primary">
                 <Phone className="mr-2 h-5 w-5" />
-                Call +254 107 500 245
+                Call +254 107 500 245 / +254 753 249 744
               </Button>
             </a>
           </div>

@@ -70,7 +70,7 @@ const FAQSection = () => {
             href="tel:+254107500245"
             className="inline-flex items-center px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors duration-300 font-medium"
           >
-            Call Us: +254 107 500 245
+            Call Us: +254 107 500 245 / +254 753 249 744
           </a>
         </div>
       </div>
