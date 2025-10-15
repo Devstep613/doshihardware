@@ -17,7 +17,7 @@ const CategoriesSection = () => {
       name: "Water Tanks",
       icon: Droplets,
       description: "High-quality water storage solutions",
-      link: "/products?category=Water%20Tanks",
+      link: "/products?category=Tanks",
       color: "text-blue-600"
     },
     {
@@ -31,21 +31,21 @@ const CategoriesSection = () => {
       name: "Reinforcement Bars",
       icon: Wrench,
       description: "Steel reinforcement materials",
-      link: "/products?category=Steel%20%26%20Iron",
+      link: "/products?category=Building%20Materials",
       color: "text-orange-600"
     },
     {
-      name: "Floor Tiles",
+      name: "Timber",
       icon: Grid3X3,
-      description: "Ceramic and porcelain tiles",
-      link: "/products?category=Tiles",
+      description: "high quality wood products",
+      link: "/products?category=timbers",
       color: "text-green-600"
     },
     {
-      name: "Wall Tiles",
+      name: "Binding Materials",
       icon: Grid3X3,
       description: "Wall covering solutions",
-      link: "/products?category=Tiles",
+      link: "/products?category=binding wires",
       color: "text-purple-600"
     },
     {
@@ -66,7 +66,7 @@ const CategoriesSection = () => {
       name: "Building Materials",
       icon: Truck,
       description: "Sand, aggregates and more",
-      link: "/products?category=Building%20Materials",
+      link: "/products?category=hollow section",
       color: "text-teal-600"
     }
   ];

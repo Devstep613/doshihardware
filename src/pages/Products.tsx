@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams, useNavigate } from "react-router-dom";
 import { Search } from "lucide-react";
 import { Spinner } from "@/components/ui/spinner";
 import Navbar from "@/components/Navbar";
@@ -15,8 +15,17 @@ import cementImg from "@/assets/products/cement.jpg";
 import roofingImg from "@/assets/products/roofing.jpg";
 
 const Products = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
+
+  useEffect(() => {
+    const categoryFromUrl = searchParams.get('category');
+    if (categoryFromUrl) {
+      setCategoryFilter(categoryFromUrl);
+    }
+  }, [searchParams]);
 
   const { data: products, isLoading } = useQuery({
     queryKey: ['products'],
@@ -76,7 +85,16 @@ const Products = () => {
                   className="pl-10"
                 />
               </div>
-              <Select value={categoryFilter} onValueChange={setCategoryFilter}>
+              <Select value={categoryFilter} onValueChange={(value) => {
+                setCategoryFilter(value);
+                const newSearchParams = new URLSearchParams(searchParams);
+                if (value === 'all') {
+                  newSearchParams.delete('category');
+                } else {
+                  newSearchParams.set('category', value);
+                }
+                setSearchParams(newSearchParams);
+              }}>
                 <SelectTrigger className="w-full md:w-[200px]">
                   <SelectValue placeholder="Category" />
                 </SelectTrigger>
