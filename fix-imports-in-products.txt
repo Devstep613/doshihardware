@@ -1,0 +1,11 @@
+Correct import statements to use in src/pages/Products.tsx:
+
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import waterTanksImg from "@/assets/products/water-tanks.jpg";
+import cementImg from "@/assets/products/cement.jpeg";
+import roofingImg from "@/assets/products/roofing.jpg";
+
+Make sure to replace any import lines importing images or components with the lines above, including no extra quotes inside the strings.
+
+After editing, save the file and restart your Vite development server to clear any cached import errors.

@@ -11,7 +11,7 @@ import { Spinner } from "@/components/ui/spinner";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import waterTanksImg from "@/assets/products/water-tanks.jpg";
-import cementImg from "@/assets/products/cement.jpg";
+import cementImg from "@/assets/products/cement.jpeg";
 import roofingImg from "@/assets/products/roofing.jpg";
 
 const Products = () => {

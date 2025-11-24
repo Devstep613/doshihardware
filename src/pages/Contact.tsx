@@ -161,13 +161,13 @@ const Contact = () => {
                     <CardTitle>Contact Information</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <a href="tel:+254107500245" className="flex items-start gap-4 p-3 rounded-lg hover:bg-muted transition-colors">
+                    <a href="tel:+245783016762" className="flex items-start gap-4 p-3 rounded-lg hover:bg-muted transition-colors">
                       <div className="bg-primary/10 p-3 rounded-lg">
                         <Phone className="h-6 w-6 text-primary" />
                       </div>
                       <div>
                         <div className="font-semibold">Phone</div>
-                        <div className="text-muted-foreground">+254 107 500 245 / +245 783 016 762</div>
+                        <div className="text-muted-foreground">+245 783 016 762</div>
                       </div>
                     </a>
 
@@ -205,7 +205,7 @@ const Contact = () => {
                     <CardDescription>Get instant responses via WhatsApp</CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <a href={`https://wa.me/+254107500245?text=${whatsappMessage}`} target="_blank" rel="noopener noreferrer">
+                    <a href={`https://wa.me/+245783016762?text=${whatsappMessage}`} target="_blank" rel="noopener noreferrer">
                       <Button className="w-full bg-green-600 hover:bg-green-700 text-white">
                         <MessageCircle className="mr-2 h-5 w-5" />
                         Chat on WhatsApp

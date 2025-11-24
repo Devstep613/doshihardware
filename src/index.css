@@ -8,98 +8,96 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Hardware store color palette - warm, professional, trustworthy */
-    --background: 0 0% 100%;
-    --foreground: 20 14.3% 4.1%;
+    /* Simba Cement color palette - strong, bold, reliable, rugged */
+    --background: 0 0% 100%; /* white */
+    --foreground: 0 0% 18%; /* dark grey / charcoal #2E2E2E */
 
-    --card: 0 0% 100%;
-    --card-foreground: 20 14.3% 4.1%;
+    --card: 0 0% 77%; /* concrete grey #C4C4C4 */
+    --card-foreground: 0 0% 18%; /* dark grey / charcoal */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 20 14.3% 4.1%;
+    --popover: 0 0% 77%; /* concrete grey */
+    --popover-foreground: 0 0% 18%;
 
-    /* Orange/Amber primary - construction industry standard */
-    --primary: 24 94% 53%;
-    --primary-foreground: 0 0% 100%;
-    --primary-light: 24 94% 60%;
-    --primary-dark: 24 94% 40%;
+    --primary: 45 100% 49%; /* safety yellow #F9B400 */
+    --primary-foreground: 0 0% 100%; /* white */
+    --primary-light: 45 100% 60%;
+    --primary-dark: 45 100% 40%;
 
-    /* Charcoal secondary - professional and clean */
-    --secondary: 20 5.9% 35%;
+    --secondary: 0 0% 18%; /* dark grey */
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 60 4.8% 95.9%;
-    --muted-foreground: 25 5.3% 44.7%;
+    --muted: 0 0% 77%; /* concrete grey */
+    --muted-foreground: 0 0% 55%;
 
-    --accent: 24 94% 53%;
+    --accent: 45 100% 49%; /* safety yellow */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 20 5.9% 90%;
-    --input: 20 5.9% 90%;
-    --ring: 24 94% 53%;
+    --border: 0 0% 77%; /* concrete grey */
+    --input: 0 0% 77%;
+    --ring: 45 100% 49%;
 
     --radius: 0.5rem;
 
     /* Gradients for hero sections */
-    --gradient-hero: linear-gradient(135deg, hsl(24 94% 53%) 0%, hsl(24 94% 40%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(45 100% 49%) 0%, hsl(45 100% 40%) 100%);
     --gradient-overlay: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 100%);
     
     /* Shadows */
-    --shadow-elegant: 0 10px 40px -10px hsl(24 94% 53% / 0.2);
-    --shadow-card: 0 4px 6px -1px hsl(20 14.3% 4.1% / 0.1);
+    --shadow-elegant: 0 10px 40px -10px hsl(45 100% 49% / 0.2);
+    --shadow-card: 0 4px 6px -1px hsl(0 0% 18% / 0.1);
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 0 0% 77%;
+    --sidebar-foreground: 0 0% 18%;
+    --sidebar-primary: 45 100% 49%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 77%;
+    --sidebar-accent-foreground: 0 0% 18%;
+    --sidebar-border: 0 0% 77%;
+    --sidebar-ring: 45 100% 49%;
   }
 
   .dark {
-    --background: 20 14.3% 4.1%;
-    --foreground: 0 0% 95%;
+    --background: 0 0% 18%; /* dark grey */
+    --foreground: 0 0% 100%; /* white */
 
-    --card: 20 14.3% 6%;
-    --card-foreground: 0 0% 95%;
+    --card: 0 0% 23%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 20 14.3% 6%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 0 0% 23%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 24 94% 53%;
+    --primary: 45 100% 49%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 24 94% 60%;
-    --primary-dark: 24 94% 40%;
+    --primary-light: 45 100% 60%;
+    --primary-dark: 45 100% 40%;
 
-    --secondary: 20 8.5% 20%;
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 0 0% 40%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 12 6.5% 15.1%;
-    --muted-foreground: 24 5.4% 63.9%;
+    --muted: 0 0% 23%;
+    --muted-foreground: 0 0% 59%;
 
-    --accent: 24 94% 53%;
+    --accent: 45 100% 49%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 95%;
 
-    --border: 12 6.5% 15.1%;
-    --input: 12 6.5% 15.1%;
-    --ring: 24 94% 53%;
+    --border: 0 0% 23%;
+    --input: 0 0% 23%;
+    --ring: 45 100% 49%;
 
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 24 94% 53%;
+    --sidebar-background: 0 0% 18%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 45 100% 49%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 0 0% 23%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 23%;
+    --sidebar-ring: 45 100% 49%;
   }
 }
 

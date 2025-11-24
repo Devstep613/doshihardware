@@ -5,9 +5,9 @@ import { Phone, MessageCircle, ArrowRight, CheckCircle } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Spinner } from "@/components/ui/spinner";
-import heroImage from "@/assets/hero-hardware.jpg";
+import heroImage from "@/assets/products/cement.jpeg";
 import waterTanksImg from "@/assets/products/water-tanks.jpg";
-import cementImg from "@/assets/products/cement.jpg";
+import cementImg from "@/assets/products/cement.jpeg";
 import roofingImg from "@/assets/products/roofing.jpg";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -81,7 +81,7 @@ const Home = () => {
                 Browse Products <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-            <a href="https://wa.me/+254107500245">
+            <a href="https://wa.me/+245783016762">
               <Button size="lg" variant="outline" className="text-lg bg-white/10 backdrop-blur border-white text-white hover:bg-white hover:text-primary">
                 <MessageCircle className="mr-2 h-5 w-5" />
                 WhatsApp Us
@@ -209,7 +209,7 @@ const Home = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Why Choose Doshi Hardware?</h2>
+            <h2 className="text-4xl font-bold mb-4">Why Choose Simba Cement?</h2>
             <p className="text-xl text-muted-foreground">Trusted by builders across Kenya</p>
           </div>
 
@@ -276,10 +276,10 @@ const Home = () => {
                 Contact Us Now
               </Button>
             </Link>
-            <a href="tel:+254107500245">
+            <a href="tel:+245783016762">
               <Button size="lg" variant="outline" className="text-lg bg-white/10 backdrop-blur border-white text-white hover:bg-white hover:text-primary">
                 <Phone className="mr-2 h-5 w-5" />
-                Call +254 107 500 245 / +245 783 016 762
+                Call +245 783 016 762
               </Button>
             </a>
           </div>

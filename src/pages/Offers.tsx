@@ -12,7 +12,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CountdownTimer from "@/components/CountdownTimer";
 import waterTanksImg from "@/assets/products/water-tanks.jpg";
-import cementImg from "@/assets/products/cement.jpg";
+import cementImg from "@/assets/products/cement.jpeg";
 import roofingImg from "@/assets/products/roofing.jpg";
 
 const Offers = () => {

@@ -25,7 +25,7 @@ const LocationMap = () => {
             <h3 className="text-2xl font-semibold mb-2">Doshi Hardware Stores</h3>
             <p className="text-muted-foreground mb-4">
               Nairobi, Kenya<br />
-              Phone: +254 107 500 245 / +245 783 016 762<br />
+              Phone: +245 783 016 762<br />
               Email: stepnjoroge0@gmail.com
             </p>
           </div>
